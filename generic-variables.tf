@@ -28,7 +28,7 @@ variable "environment" {
 }
 # Business Division
 variable "business_division" {
-  description = "Business Division in the large organization this Infrastructure belongs"
+  description = "Business division name"
   type        = string
   default     = "SpaceX"
 }
