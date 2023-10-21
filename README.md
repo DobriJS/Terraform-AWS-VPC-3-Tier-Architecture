@@ -38,6 +38,7 @@ terraform destroy -auto-approve
 
 ```t
 # Input Variables
+
 # AWS Region
 variable "aws_region" {
   description = "Region in which AWS Resources to be created"
@@ -87,6 +88,17 @@ locals {
     environment = local.environment
   }
 }
+```
+
+#### terraform.tfvars
+
+```t
+# Generic Variables
+aws_region        = "us-east-1"
+access_key        = ""
+secret_key        = ""
+environment       = "stag"
+business_division = "Some Division in the corp."
 ```
 
 #### vpc-variables.tf
@@ -285,17 +297,6 @@ output "azs" {
 }
 ```
 
-#### terraform.tfvars
-
-```t
-# Generic Variables
-aws_region        = "us-east-1"
-access_key        = ""
-secret_key        = ""
-environment       = "stag"
-business_division = "Some Division in the corp."
-```
-
 #### vpc.auto.tfvars
 
 ```t
@@ -314,4 +315,8 @@ vpc_single_nat_gateway = true
 
 ## Clean-Up
 
+#### Don't forget to clean up all the created resources to save money on your account !
+
+```t
 terraform destroy -auto-approve
+```
